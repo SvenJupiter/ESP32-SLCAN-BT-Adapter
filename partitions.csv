@@ -1,0 +1,10 @@
+# Espressif ESP32 Partition Table
+# Name,   Type, SubType, Offset,  Size, Flags
+# increased nvs to 154kb
+# ""start ota at 256kb, 2x ota partitions with 1.5MB + storage of 1MB = 4MB""
+nvs,      data, nvs,     0x9000,  0x24000, 
+otadata,  data, ota,     0x2d000,  0x2000,
+phy_init, data, phy,     0x2f000,  0x1000,
+storage,  data, spiffs,         ,     24k,
+ota_0,    0,    ota_0,          ,   1500k, 
+ota_1,    0,    ota_1,          ,   1500k,
