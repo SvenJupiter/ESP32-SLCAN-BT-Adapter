@@ -179,11 +179,11 @@ def do_sending_and_receiving_test(can_bt_bus, can_usb_bus, use_extended_id=False
         test_received_request = can_usb_bus.recv()
 
         # Checking 
-        assert(test_send_request.arbitration_id == test_send_request.arbitration_id)
-        assert(test_received_request.is_extended_id == test_received_request.is_extended_id)
-        assert(test_received_request.is_remote_frame == test_received_request.is_remote_frame)
-        assert(test_received_request.data == test_received_request.data)
-        assert(test_received_request.dlc == test_received_request.dlc)
+        assert(test_send_request.arbitration_id == test_received_request.arbitration_id)
+        assert(test_send_request.is_extended_id == test_received_request.is_extended_id)
+        assert(test_send_request.is_remote_frame == test_received_request.is_remote_frame)
+        assert(test_send_request.data == test_received_request.data)
+        assert(test_send_request.dlc == test_received_request.dlc)
 
         if use_extended_id and not do_remote_frame:
             print("Extended ID Sending test successfull")
